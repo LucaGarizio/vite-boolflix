@@ -48,4 +48,8 @@ export default {
 	margin: 0;
 	box-sizing: border-box;
 }
+
+img {
+	width: 100px;
+}
 </style>
