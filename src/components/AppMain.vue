@@ -1,7 +1,12 @@
 <script>
+import AppCard from "./AppCard.vue";
 import { store } from "../store";
+
 export default {
 	name: "AppMain",
+	components: {
+		AppCard,
+	},
 	data() {
 		return {
 			store,
@@ -10,14 +15,21 @@ export default {
 };
 </script>
 <template>
-	<ul>
-		<li style="margin-bottom: 50px" v-for="movieCards in store.getMovie">
-			<h3>Titolo Film: {{ movieCards.title }}</h3>
-			<h3>Titolo Originale: {{ movieCards.original_title }}</h3>
-			<h3>Lingua originale: {{ movieCards.original_language }}</h3>
-			<h3>Vote rating: {{ movieCards.vote_average }}</h3>
-		</li>
-	</ul>
+	<div v-if="store.getMovie.length > 0" class="container">
+		<h2>Movies</h2>
+		<AppCard />
+		<h2>Serie TV</h2>
+	</div>
+	<div v-else class="container-start">
+		<h2>Cerca il tuo film</h2>
+	</div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.container-start {
+	display: flex;
+	justify-content: center;
+	font-size: 50px;
+	margin-top: 100px;
+}
+</style>

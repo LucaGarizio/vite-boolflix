@@ -17,7 +17,12 @@ export default {
 	},
 	methods: {
 		getMovie() {
-			axios.get(store.apiMovie).then((res) => {
+			let myApi = store.apiMovie;
+
+			if (store.searchMovie !== "") {
+				myApi += `&query=${store.searchMovie}`;
+			}
+			axios.get(myApi).then((res) => {
 				console.log(res.data.results);
 				store.getMovie = res.data.results;
 			});
