@@ -21,8 +21,8 @@ export default {
 		class="container"
 	>
 		<section>
-			<h1>Film</h1>
-			<div class="col">
+			<h2>Film</h2>
+			<div class="card">
 				<AppCard
 					v-for="cards in store.getMovie"
 					:key="cards.id"
@@ -32,14 +32,16 @@ export default {
 			</div>
 		</section>
 		<section>
-			<h1>Serie</h1>
+			<h2>Serie</h2>
 			<div class="col">
-				<AppCard
-					v-for="cards in store.getTvSeries"
-					:key="cards.id"
-					:info="cards"
-					:myImg="store.apiImg"
-				/>
+				<div class="card">
+					<AppCard
+						v-for="cards in store.getTvSeries"
+						:key="cards.id"
+						:info="cards"
+						:myImg="store.apiImg"
+					/>
+				</div>
 			</div>
 		</section>
 	</div>
@@ -52,8 +54,20 @@ export default {
 <style lang="scss" scoped>
 .container {
 	width: 90%;
-	margin: 50px auto;
-	border: 1px solid black;
+	margin: 0 auto;
+
+	.card {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+h2 {
+	font-size: 50px;
+	margin: 30px 0 0;
+	text-transform: uppercase;
 }
 
 .container-start {
