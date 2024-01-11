@@ -16,6 +16,7 @@ export default {
 </script>
 
 <template>
+	<!-- se la lunghezza dell'array della chiamata dell'api è maggiore di zero allora mostra film e serie tv **-->
 	<div
 		v-if="store.getMovie.length > 0 || store.getTvSeries > 0"
 		class="container"
@@ -46,10 +47,10 @@ export default {
 		</section>
 	</div>
 
+	<!--** altrimenti mostra messaggio  -->
 	<div v-else class="container-start">
 		<h2>Cerca il tuo film o serie tv</h2>
 	</div>
-	<div></div>
 </template>
 
 <style lang="scss" scoped>
