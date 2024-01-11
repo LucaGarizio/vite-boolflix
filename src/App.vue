@@ -17,21 +17,21 @@ export default {
 	},
 	methods: {
 		getMovie() {
-			let myApiM = store.apiMovie;
+			let myApiMovie = store.apiMovie;
 
-			let myApiS = store.apiSeries;
+			let myApiSeries = store.apiSeries;
 			if (store.searchMovie !== "") {
-				myApiM += `&query=${store.searchMovie}`;
+				myApiMovie += `&query=${store.searchMovie}`;
 			}
-			axios.get(myApiM).then((res) => {
+			axios.get(myApiMovie).then((res) => {
 				console.log(res.data.results);
 				store.getMovie = res.data.results;
 			});
 
 			if (store.searchTvSeries !== "") {
-				myApiS += `&query=${store.searchMovie}`;
+				myApiSeries += `&query=${store.searchMovie}`;
 			}
-			axios.get(myApiS).then((res) => {
+			axios.get(myApiSeries).then((res) => {
 				console.log(res.data.results);
 				store.getTvSeries = res.data.results;
 			});
@@ -51,6 +51,4 @@ export default {
 <style lang="scss">
 @use "../styles/partials/variables" as *;
 @use "../styles/general.scss" as *;
-
-
 </style>

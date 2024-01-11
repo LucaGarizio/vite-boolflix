@@ -49,7 +49,7 @@ export default {
 			/>
 			<h4>
 				Vote rating:
-				{{ Math.ceil(info.vote_average / 2).toFixed(0) }}
+				{{ Math.ceil(info.vote_average / 2).toFixed(0) }} on 5
 			</h4>
 			<p v-if="info.overview === ''">Overview: Nothing to show</p>
 			<p v-else>Overview: {{ info.overview }}</p>
@@ -76,6 +76,7 @@ export default {
 	padding: 5px 10px 0;
 	background-color: #000;
 	color: #fff;
+	cursor: pointer;
 
 	h3,
 	p {

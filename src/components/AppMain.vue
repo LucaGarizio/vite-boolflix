@@ -58,27 +58,27 @@ export default {
 	margin: 0 auto;
 	height: calc(100vh - 70px);
 	overflow: auto;
+	padding: 0 40px;
+
+	h2 {
+		font-size: 30px;
+		margin: 30px 0 0;
+		text-transform: uppercase;
+		color: #ff0000;
+	}
 
 	.card {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-around;
+		justify-content: space-between;
 		align-items: center;
 	}
-}
-
-h2 {
-	font-size: 30px;
-	margin: 30px 0 0;
-	text-transform: uppercase;
-	margin-left: 20px;
-	color: #ff0000;
 }
 
 .container-start {
 	display: flex;
 	justify-content: center;
-	font-size: 50px;
+	font-size: 40px;
 	margin-top: 100px;
 
 	h2 {

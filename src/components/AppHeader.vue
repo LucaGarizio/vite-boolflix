@@ -13,7 +13,12 @@ export default {
 	<div class="row">
 		<div class="title">Boolflix</div>
 		<div class="search">
-			<input v-model="store.searchMovie" type="text" placeholder="Ricerca" />
+			<input
+				v-model="store.searchMovie"
+				type="text"
+				placeholder="Ricerca"
+				@keyup.enter="$emit('search')"
+			/>
 			<button @click="$emit('search')">Cerca</button>
 		</div>
 	</div>
