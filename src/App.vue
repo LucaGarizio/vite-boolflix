@@ -27,6 +27,17 @@ export default {
 				store.getMovie = res.data.results;
 			});
 		},
+		// getSeries() {
+		// 	let myApi = store.apiSeries;
+
+		// 	if (store.searchMovie !== "") {
+		// 		myApi += `&query=${store.searchMovie}`;
+		// 	}
+		// 	axios.get(myApi).then((res) => {
+		// 		console.log(res.data.results);
+		// 		store.getMovie = res.data.results;
+		// 	});
+		// },
 	},
 	created() {
 		this.getMovie();
