@@ -36,8 +36,8 @@ export default {
 		<img v-else class="poster" :src="myImg + info.poster_path" alt="" />
 
 		<div class="info-container">
-			<h3>Titolo Film: {{ info.title || info.name }}</h3>
-			<h3>Titolo Originale: {{ info.original_title || info.original_name }}</h3>
+			<h4>Titolo Film: {{ info.title || info.name }}</h4>
+			<h4>Titolo Originale: {{ info.original_title || info.original_name }}</h4>
 			<img
 				class="flags"
 				:src="
@@ -47,11 +47,12 @@ export default {
 				"
 				:alt="info.original_language"
 			/>
-			<h3>
-				Vote rating: 
+			<h4>
+				Vote rating:
 				{{ Math.ceil(info.vote_average / 2).toFixed(0) }}
-			</h3>
-			<p>Overview: {{ info.overview }}</p>
+			</h4>
+			<p v-if="info.overview === ''">Overview: Nothing to show</p>
+			<p v-else>Overview: {{ info.overview }}</p>
 		</div>
 	</div>
 </template>
@@ -78,7 +79,7 @@ export default {
 
 	h3,
 	p {
-		margin: 10px 0;
+		margin: 5px 0;
 	}
 }
 .img-container {
@@ -86,7 +87,7 @@ export default {
 
 	.poster {
 		width: 342px;
-		height: 500px;
+		height: 510px;
 	}
 }
 
@@ -98,9 +99,10 @@ h2 {
 .img-container,
 .info-container {
 	width: 342px;
-	height: 500px;
+	height: 510px;
 }
 .flags {
 	width: 40px;
+	margin: 5px 0;
 }
 </style>

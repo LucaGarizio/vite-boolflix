@@ -31,7 +31,7 @@ export default {
 		color: red;
 		margin-left: 20px;
 		text-transform: uppercase;
-		font-size: 30px;
+		font-size: 40px;
 	}
 
 	button {

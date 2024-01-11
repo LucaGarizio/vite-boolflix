@@ -49,25 +49,30 @@ export default {
 	<div v-else class="container-start">
 		<h2>Cerca il tuo film o serie tv</h2>
 	</div>
+	<div></div>
 </template>
 
 <style lang="scss" scoped>
 .container {
-	width: 90%;
+	width: 100%;
 	margin: 0 auto;
+	height: calc(100vh - 70px);
+	overflow: auto;
 
 	.card {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-between;
+		justify-content: space-around;
 		align-items: center;
 	}
 }
 
 h2 {
-	font-size: 50px;
+	font-size: 30px;
 	margin: 30px 0 0;
 	text-transform: uppercase;
+	margin-left: 20px;
+	color: #ff0000;
 }
 
 .container-start {
