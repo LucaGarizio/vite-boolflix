@@ -21,7 +21,7 @@ export default {
 		class="container"
 	>
 		<section>
-			<h2>Film</h2>
+			<h2>Movies</h2>
 			<div class="card">
 				<AppCard
 					v-for="cards in store.getMovie"
@@ -32,7 +32,7 @@ export default {
 			</div>
 		</section>
 		<section>
-			<h2>Serie</h2>
+			<h2>TV Series</h2>
 			<div class="col">
 				<div class="card">
 					<AppCard

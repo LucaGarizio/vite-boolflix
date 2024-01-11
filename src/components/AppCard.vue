@@ -48,8 +48,8 @@ export default {
 				:alt="info.original_language"
 			/>
 			<h3>
-				Vote rating:
-				{{ Math.ceil(info.vote_average / 2).toFixed(1) }}
+				Vote rating: 
+				{{ Math.ceil(info.vote_average / 2).toFixed(0) }}
 			</h3>
 			<p>Overview: {{ info.overview }}</p>
 		</div>
@@ -72,7 +72,7 @@ export default {
 .img-container:hover .info-container {
 	display: block;
 	text-align: left;
-	padding: 10px 10px 0;
+	padding: 5px 10px 0;
 	background-color: #000;
 	color: #fff;
 
@@ -99,9 +99,6 @@ h2 {
 .info-container {
 	width: 342px;
 	height: 500px;
-	img {
-		border: 1px solid #ddd;
-	}
 }
 .flags {
 	width: 40px;

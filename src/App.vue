@@ -52,13 +52,5 @@ export default {
 @use "../styles/partials/variables" as *;
 @use "../styles/general.scss" as *;
 
-* {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-}
 
-// img {
-// 	width: 100px;
-// }
 </style>
