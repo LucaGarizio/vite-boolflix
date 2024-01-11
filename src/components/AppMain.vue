@@ -14,15 +14,38 @@ export default {
 	},
 };
 </script>
+
 <template>
-	<div v-if="store.getMovie.length > 0" class="container">
-		<h3>Movies</h3>
-		<AppCard />
-		<h3>Serie TV</h3>
+	<div
+		v-if="store.getMovie.length > 0 || store.getTvSeries > 0"
+		class="container"
+	>
+		<section>
+			<h1>Film</h1>
+			<div class="col">
+				<AppCard
+					v-for="cards in store.getMovie"
+					:key="cards.id"
+					:info="cards"
+					:myImg="store.apiImg"
+				/>
+			</div>
+		</section>
+		<section>
+			<h1>Serie</h1>
+			<div class="col">
+				<AppCard
+					v-for="cards in store.getTvSeries"
+					:key="cards.id"
+					:info="cards"
+					:myImg="store.apiImg"
+				/>
+			</div>
+		</section>
 	</div>
 
 	<div v-else class="container-start">
-		<h2>Cerca il tuo film</h2>
+		<h2>Cerca il tuo film o serie tv</h2>
 	</div>
 </template>
 
@@ -31,10 +54,6 @@ export default {
 	width: 90%;
 	margin: 50px auto;
 	border: 1px solid black;
-	h3 {
-		text-transform: uppercase;
-		font-size: 30px;
-	}
 }
 
 .container-start {

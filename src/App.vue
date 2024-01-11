@@ -17,27 +17,25 @@ export default {
 	},
 	methods: {
 		getMovie() {
-			let myApi = store.apiMovie;
+			let myApiM = store.apiMovie;
 
+			let myApiS = store.apiSeries;
 			if (store.searchMovie !== "") {
-				myApi += `&query=${store.searchMovie}`;
+				myApiM += `&query=${store.searchMovie}`;
 			}
-			axios.get(myApi).then((res) => {
+			axios.get(myApiM).then((res) => {
 				console.log(res.data.results);
 				store.getMovie = res.data.results;
 			});
-		},
-		// getSeries() {
-		// 	let myApi = store.apiSeries;
 
-		// 	if (store.searchMovie !== "") {
-		// 		myApi += `&query=${store.searchMovie}`;
-		// 	}
-		// 	axios.get(myApi).then((res) => {
-		// 		console.log(res.data.results);
-		// 		store.getMovie = res.data.results;
-		// 	});
-		// },
+			if (store.searchTvSeries !== "") {
+				myApiS += `&query=${store.searchMovie}`;
+			}
+			axios.get(myApiS).then((res) => {
+				console.log(res.data.results);
+				store.getTvSeries = res.data.results;
+			});
+		},
 	},
 	created() {
 		this.getMovie();
@@ -60,7 +58,7 @@ export default {
 	box-sizing: border-box;
 }
 
-img {
-	width: 100px;
-}
+// img {
+// 	width: 100px;
+// }
 </style>
