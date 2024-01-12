@@ -74,6 +74,7 @@ export default {
 							></i>
 						</div>
 					</div>
+
 					<!-- se non trova la descrizione allora scrivi -->
 					<p v-if="info.overview === ''">Overview: Nothing to show</p>
 					<!-- altimenti mostra la descrizione -->
@@ -115,6 +116,7 @@ export default {
 
 .back {
 	transform: rotateY(180deg);
+	overflow-y: auto;
 }
 
 .container-card:hover > .front {
@@ -125,19 +127,22 @@ export default {
 	padding: 10px;
 }
 
-h2 {
-	font-size: 30px;
+h4 {
+	font-size: 18px;
+	margin-bottom: 10px;
 }
 
 .flags {
-	width: 40px !important;
-	margin: 5px 0;
+	width: 50px !important;
+	margin: 10px 0;
 }
 .rate {
 	display: flex;
+	margin-bottom: 10px;
 }
 .stars {
-	font-size: 20px;
+	font-size: 15px;
+	margin-bottom: 3px;
 }
 .fa-star-colored {
 	color: yellow;

@@ -63,8 +63,6 @@ export default {
 .main-container {
 	height: calc(100vh - 70px);
 	overflow: auto;
-	display: flex;
-	justify-content: center;
 }
 .container {
 	width: 90%;
