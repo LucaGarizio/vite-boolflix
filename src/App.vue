@@ -25,7 +25,7 @@ export default {
 
 			let myApiSeries = store.apiSeries;
 
-			let mySelect = store.apiGenre;
+			// let mySelect = store.apiGenre;
 
 			if (store.searchMovie !== "") {
 				myApiMovie += `&query=${store.searchMovie}`;
@@ -59,12 +59,10 @@ export default {
 };
 </script>
 
-
 <template>
 	<AppHeader @search="getMovie" />
 	<AppMain />
 </template>
-
 
 <style lang="scss">
 @use "../styles/partials/variables" as *;

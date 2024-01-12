@@ -60,7 +60,7 @@ nav {
 	margin: 0 30px;
 
 	.title {
-		color: red;
+		color: #ff0000;
 		text-transform: uppercase;
 		font-size: 40px;
 	}

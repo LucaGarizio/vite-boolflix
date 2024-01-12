@@ -69,7 +69,7 @@ export default {
 		font-size: 30px;
 		margin: 30px 0 0;
 		text-transform: uppercase;
-		color: #ff0000;
+		color: #000;
 	}
 
 	.card {

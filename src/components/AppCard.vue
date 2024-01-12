@@ -27,89 +27,106 @@ export default {
 </script>
 
 <template>
-	<div class="img-container">
-		<!-- se non trova l'immagine di copertina allora mostra immagine 404 -->
-		<img
-			:src="movieNotFound.error"
-			alt=""
-			class="poster"
-			v-if="info.poster_path === null || info.poster_path === ''"
-		/>
-		<!-- altrimenti mostra immagine copertina -->
-		<img v-else class="poster" :src="myImg + info.poster_path" alt="" />
-
-		<div class="info-container">
-			<div class="title">
-				<!-- stampa i titoli sia per i film che per le serie tv -->
-				<h4>Titolo Film: {{ info.title || info.name }}</h4>
-				<h4>
-					Titolo Originale: {{ info.original_title || info.original_name }}
-				</h4>
-			</div>
-
-			<!-- se trova trova la lingua carica la bandiera corrispondente altrimenti carica l'immagine della bandiera di default -->
+	<div class="container-card">
+		<div class="front">
+			<!-- se non trova l'immagine di copertina allora mostra immagine 404 -->
 			<img
-				class="flags"
-				:src="
-					languageFlags[info.original_language]
-						? languageFlags[info.original_language]
-						: 'https://iiwiki.us/mediawiki/images/d/d2/SUFlag28Stars.svg'
-				"
-				:alt="info.original_language"
+				class="error"
+				:src="movieNotFound.error"
+				alt=""
+				v-if="info.poster_path === null || info.poster_path === ''"
 			/>
-			<div class="rate">
-				<!-- carica 5 stelle -->
-				<div class="stars" v-for="star in 5">
-					<i
-						:class="[
-							// aggiunge la classe di base della stella
-							'fa-regular',
-							'fa-star',
-							// arrotonda il valore del della stringa del voto per eccessso dividilo  per 2 e non mettere nessun valore dopo la virgola
+			<!-- altrimenti mostra immagine copertina -->
+			<img v-else :src="myImg + info.poster_path" alt="" />
 
-							// 	aggiungi la classe per colorare la stella in base al valore del numero della stringa
-							star <= Math.ceil(info.vote_average / 2).toFixed(0)
-								? 'fa-star-colored'
-								: '',
-						]"
-					></i>
+			<!-- retro div con le informazioni -->
+			<div class="back">
+				<div class="info">
+					<!-- stampa i titoli sia per i film che per le serie tv -->
+					<h4>Titolo Film: {{ info.title || info.name }}</h4>
+					<h4>
+						Titolo Originale: {{ info.original_title || info.original_name }}
+					</h4>
+
+					<!-- se trova trova la lingua carica la bandiera corrispondente altrimenti carica l'immagine della bandiera di default -->
+					<img
+						class="flags"
+						:src="
+							languageFlags[info.original_language]
+								? languageFlags[info.original_language]
+								: 'https://iiwiki.us/mediawiki/images/d/d2/SUFlag28Stars.svg'
+						"
+						:alt="info.original_language"
+					/>
+					<div class="rate">
+						<!-- carica 5 stelle -->
+						<div class="stars" v-for="star in 5">
+							<i
+								:class="[
+									// aggiunge la classe di base della stella
+									'fa-regular',
+									'fa-star',
+									// arrotonda il valore del della stringa del voto per eccessso dividilo  per 2 e non mettere nessun valore dopo la virgola
+									// 	aggiungi la classe per colorare la stella in base al valore del numero della stringa
+									star <= Math.ceil(info.vote_average / 2).toFixed(0)
+										? 'fa-star-colored'
+										: '',
+								]"
+							></i>
+						</div>
+					</div>
+
+					<!-- se non trova la descrizione allora scrivi -->
+					<p v-if="info.overview === ''">Overview: Nothing to show</p>
+					<!-- altimenti mostra la descrizione -->
+					<p v-else>Overview: {{ info.overview }}</p>
 				</div>
-			</div>
-			<div class="overview">
-				<!-- se non trova la descrizione allora scrivi -->
-				<p v-if="info.overview === ''">Overview: Nothing to show</p>
-				<!-- altimenti mostra la descrizione -->
-				<p v-else>Overview: {{ info.overview }}</p>
 			</div>
 		</div>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-.info-container {
-	display: none;
-}
-
-.img-container:hover .poster {
-	display: none;
-}
-
-.img-container:hover .info-container {
-	display: block;
-	text-align: left;
-	padding: 12px 10px 0;
-	background-color: #000;
-	color: #fff;
+.container-card {
 	cursor: pointer;
-}
-.img-container {
+	width: 342px;
+	height: 500px;
+	position: relative;
 	margin: 20px 0;
-
-	.poster {
+	.error {
 		width: 342px;
-		height: 510px;
-		display: block;
+		height: 500px;
 	}
+}
+
+.front,
+.back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	backface-visibility: hidden;
+	transition: transform 0.6s linear;
+	transform-style: preserve-3d;
+	background-color: #000;
+	color: white;
+}
+
+.front {
+	transform: rotateY(0deg);
+}
+
+.back {
+	transform: rotateY(180deg);
+}
+
+.container-card:hover > .front {
+	transform: rotateY(-180deg);
+}
+
+.info {
+	padding: 10px;
 }
 
 h2 {
@@ -117,11 +134,6 @@ h2 {
 	font-size: 30px;
 }
 
-.img-container,
-.info-container {
-	width: 342px;
-	height: 510px;
-}
 .flags {
 	width: 40px;
 	margin: 5px 0;
