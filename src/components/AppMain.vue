@@ -40,7 +40,7 @@ export default {
 
 			<!-- sezione v-for per serie tv -->
 			<section>
-				<h2>TV Series</h2>
+				<h2 :class="{ hide: store.getTvSeries.length === 0 }">TV Series</h2>
 				<div class="card">
 					<AppCard
 						v-for="cards in store.getTvSeries"
@@ -71,7 +71,6 @@ export default {
 	margin: 0 auto;
 
 	h2 {
-		
 		margin: 30px 0 10px;
 		color: #000;
 	}
@@ -80,6 +79,10 @@ export default {
 		display: flex;
 		flex-wrap: wrap;
 	}
+}
+
+.hide {
+	display: none;
 }
 
 .container-start {
