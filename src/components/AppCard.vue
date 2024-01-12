@@ -16,6 +16,7 @@ export default {
 				es: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/400px-Flag_of_Spain.svg.png",
 				fr: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/396px-Flag_of_France.svg.png",
 				en: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/400px-Flag_of_the_United_Kingdom_%283-5%29.svg.png",
+				ja: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Japan_%281870%E2%80%931999%29.svg/800px-Flag_of_Japan_%281870%E2%80%931999%29.svg.png?20090916033331",
 			},
 			movieNotFound: {
 				error:
@@ -93,10 +94,16 @@ export default {
 	height: 500px;
 	position: relative;
 	margin: 20px 0;
-	.error {
+
+	img {
 		width: 100%;
 		height: 100%;
 	}
+}
+
+.front {
+	transform: rotateY(0deg);
+	width: 100%;
 }
 
 .front,
@@ -111,10 +118,6 @@ export default {
 	transform-style: preserve-3d;
 	background-color: #000;
 	color: white;
-}
-
-.front {
-	transform: rotateY(0deg);
 }
 
 .back {
@@ -135,7 +138,7 @@ h2 {
 }
 
 .flags {
-	width: 40px;
+	width: 40px !important;
 	margin: 5px 0;
 }
 .rate {
