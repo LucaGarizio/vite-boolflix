@@ -39,7 +39,6 @@ export default {
 			/>
 			<!-- altrimenti mostra immagine copertina -->
 			<img v-else :src="myImg + info.poster_path" alt="" />
-
 			<!-- retro div con le informazioni -->
 			<div class="back">
 				<div class="info">
@@ -48,7 +47,6 @@ export default {
 					<h4>
 						Titolo Originale: {{ info.original_title || info.original_name }}
 					</h4>
-
 					<!-- se trova trova la lingua carica la bandiera corrispondente altrimenti carica l'immagine della bandiera di default -->
 					<img
 						class="flags"
@@ -76,7 +74,6 @@ export default {
 							></i>
 						</div>
 					</div>
-
 					<!-- se non trova la descrizione allora scrivi -->
 					<p v-if="info.overview === ''">Overview: Nothing to show</p>
 					<!-- altimenti mostra la descrizione -->
@@ -93,17 +90,12 @@ export default {
 	width: 342px;
 	height: 500px;
 	position: relative;
-	margin: 20px 0;
+	margin: 10px 7px;
 
 	img {
 		width: 100%;
 		height: 100%;
 	}
-}
-
-.front {
-	transform: rotateY(0deg);
-	width: 100%;
 }
 
 .front,
@@ -114,10 +106,11 @@ export default {
 	right: 0;
 	bottom: 0;
 	backface-visibility: hidden;
-	transition: transform 0.7s linear;
+	transition: transform 0.6s linear;
 	transform-style: preserve-3d;
 	background-color: #000;
 	color: white;
+	border: 1px solid #ddd;
 }
 
 .back {
@@ -133,7 +126,6 @@ export default {
 }
 
 h2 {
-	text-transform: uppercase;
 	font-size: 30px;
 }
 
