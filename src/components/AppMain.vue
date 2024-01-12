@@ -1,6 +1,9 @@
 <script>
-import AppCard from "./AppCard.vue";
+// importa store
 import { store } from "../store";
+
+// importa componenti
+import AppCard from "./AppCard.vue";
 
 export default {
 	name: "AppMain",
@@ -21,6 +24,7 @@ export default {
 		v-if="store.getMovie.length > 0 || store.getTvSeries > 0"
 		class="container"
 	>
+		<!-- sezione v-for per film -->
 		<section>
 			<h2>Movies</h2>
 			<div class="card">
@@ -32,17 +36,17 @@ export default {
 				/>
 			</div>
 		</section>
+
+		<!-- sezione v-for per serie tv -->
 		<section>
 			<h2>TV Series</h2>
-			<div class="col">
-				<div class="card">
-					<AppCard
-						v-for="cards in store.getTvSeries"
-						:key="cards.id"
-						:info="cards"
-						:myImg="store.apiImg"
-					/>
-				</div>
+			<div class="card">
+				<AppCard
+					v-for="cards in store.getTvSeries"
+					:key="cards.id"
+					:info="cards"
+					:myImg="store.apiImg"
+				/>
 			</div>
 		</section>
 	</div>
@@ -72,7 +76,6 @@ export default {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		align-items: center;
 	}
 }
 

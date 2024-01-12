@@ -1,8 +1,12 @@
 <script>
+// importa componenti
 import AppHeader from "./components/AppHeader.vue";
 import AppMain from "./components/AppMain.vue";
 
+// importa axios
 import axios from "axios";
+
+// importa store
 import { store } from "./store";
 
 export default {
@@ -20,6 +24,9 @@ export default {
 			let myApiMovie = store.apiMovie;
 
 			let myApiSeries = store.apiSeries;
+
+			let mySelect = store.apiGenre;
+
 			if (store.searchMovie !== "") {
 				myApiMovie += `&query=${store.searchMovie}`;
 			}
@@ -35,18 +42,29 @@ export default {
 				console.log(res.data.results);
 				store.getTvSeries = res.data.results;
 			});
+			store.searchMovie = "";
 		},
+		// bonus seleziona genere
+		// getGenre() {
+		// 	let mySelect = store.apiGenre;
+		// 	axios.get(mySelect).then((res) => {
+		// 		console.log(res.data.genres);
+		// 		store.getGenre = res.data.genres;
+		// 	});
+		// },
 	},
-	created() {
-		this.getMovie();
-	},
+	// created() {
+	// 	this.getGenre();
+	// },
 };
 </script>
+
 
 <template>
 	<AppHeader @search="getMovie" />
 	<AppMain />
 </template>
+
 
 <style lang="scss">
 @use "../styles/partials/variables" as *;

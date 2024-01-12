@@ -1,4 +1,5 @@
 <script>
+// importa store
 import { store } from "../store";
 
 export default {
@@ -46,7 +47,7 @@ export default {
 				</h4>
 			</div>
 
-			<!-- se non trova la bandiera corrispondente alla lingua carica una bandiera di dafault altrimenti carica l'immagine della bandiera corrispondente -->
+			<!-- se trova trova la lingua carica la bandiera corrispondente altrimenti carica l'immagine della bandiera di default -->
 			<img
 				class="flags"
 				:src="
@@ -64,8 +65,9 @@ export default {
 							// aggiunge la classe di base della stella
 							'fa-regular',
 							'fa-star',
+							// arrotonda il valore del della stringa del voto per eccessso dividilo  per 2 e non mettere nessun valore dopo la virgola
 
-							// se il numero della stella è minore o uguale al voto allora ggiungi la classe per colorare la stella
+							// 	aggiungi la classe per colorare la stella in base al valore del numero della stringa
 							star <= Math.ceil(info.vote_average / 2).toFixed(0)
 								? 'fa-star-colored'
 								: '',
@@ -84,10 +86,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.poster {
-	display: block;
-}
-
 .info-container {
 	display: none;
 }
@@ -99,15 +97,10 @@ export default {
 .img-container:hover .info-container {
 	display: block;
 	text-align: left;
-	padding: 5px 10px 0;
+	padding: 12px 10px 0;
 	background-color: #000;
 	color: #fff;
 	cursor: pointer;
-
-	h3,
-	p {
-		margin: 5px 0;
-	}
 }
 .img-container {
 	margin: 20px 0;
@@ -115,6 +108,7 @@ export default {
 	.poster {
 		width: 342px;
 		height: 510px;
+		display: block;
 	}
 }
 
@@ -134,6 +128,9 @@ h2 {
 }
 .rate {
 	display: flex;
+}
+.stars {
+	font-size: 20px;
 }
 .fa-star-colored {
 	color: yellow;
