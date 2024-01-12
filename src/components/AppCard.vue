@@ -65,7 +65,7 @@ export default {
 							<i
 								:class="[
 									// aggiunge la classe di base della stella
-									'fa-regular',
+									'fa-solid',
 									'fa-star',
 									// arrotonda il valore del della stringa del voto per eccessso dividilo  per 2 e non mettere nessun valore dopo la virgola
 									// 	aggiungi la classe per colorare la stella in base al valore del numero della stringa
