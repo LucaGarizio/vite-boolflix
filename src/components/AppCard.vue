@@ -94,8 +94,8 @@ export default {
 	position: relative;
 	margin: 20px 0;
 	.error {
-		width: 342px;
-		height: 500px;
+		width: 100%;
+		height: 100%;
 	}
 }
 
@@ -107,7 +107,7 @@ export default {
 	right: 0;
 	bottom: 0;
 	backface-visibility: hidden;
-	transition: transform 0.6s linear;
+	transition: transform 0.7s linear;
 	transform-style: preserve-3d;
 	background-color: #000;
 	color: white;

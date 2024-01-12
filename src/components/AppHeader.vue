@@ -74,6 +74,13 @@ nav {
 
 	input {
 		padding: 8px;
+		margin-left: 20px;
+	}
+}
+
+@media all and (max-width: 576px) {
+	button {
+		display: none;
 	}
 }
 </style>
