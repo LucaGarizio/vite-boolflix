@@ -53,7 +53,7 @@ nav {
 	background-color: black;
 }
 .row {
-	height: 70px;
+	height: 90px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

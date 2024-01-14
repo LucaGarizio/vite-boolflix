@@ -28,50 +28,52 @@ export default {
 </script>
 
 <template>
-	<div class="container-card">
-		<div class="front">
-			<!-- se non trova l'immagine di copertina allora mostra immagine 404 -->
-			<img
-				class="error"
-				:src="movieNotFound.error"
-				alt=""
-				v-if="info.poster_path === null || info.poster_path === ''"
-			/>
-			<!-- altrimenti mostra immagine copertina -->
-			<img v-else :src="myImg + info.poster_path" alt="" />
-			<!-- retro div con le informazioni -->
-			<div class="back">
-				<div class="info">
-					<!-- stampa i titoli sia per i film che per le serie tv -->
-					<h4>Titolo Film: {{ info.title || info.name }}</h4>
-					<h4>
-						Titolo Originale: {{ info.original_title || info.original_name }}
-					</h4>
-					<!-- se trova trova la lingua carica la bandiera corrispondente altrimenti carica l'immagine della bandiera di default -->
-					<img
-						class="flags"
-						:src="
-							languageFlags[info.original_language]
-								? languageFlags[info.original_language]
-								: 'https://iiwiki.us/mediawiki/images/d/d2/SUFlag28Stars.svg'
-						"
-						:alt="info.original_language"
-					/>
-					<div class="rate">
-						<!-- carica 5 stelle -->
-						<div class="stars" v-for="star in 5">
-							<i
-								:class="[
-									// aggiunge la classe di base della stella
-									'fa-solid',
-									'fa-star',
-									// arrotonda il valore del della stringa del voto per eccessso dividilo  per 2 e non mettere nessun valore dopo la virgola
-									// 	aggiungi la classe per colorare la stella in base al valore del numero della stringa
-									star <= Math.ceil(info.vote_average / 2).toFixed(0)
-										? 'fa-star-colored'
-										: '',
-								]"
-							></i>
+	<div class="row">
+		<div class="container-card">
+			<div class="front">
+				<!-- se non trova l'immagine di copertina allora mostra immagine 404 -->
+				<img
+					class="error"
+					:src="movieNotFound.error"
+					alt=""
+					v-if="info.poster_path === null || info.poster_path === ''"
+				/>
+				<!-- altrimenti mostra immagine copertina -->
+				<img v-else :src="myImg + info.poster_path" alt="" />
+				<!-- retro div con le informazioni -->
+				<div class="back">
+					<div class="info">
+						<!-- stampa i titoli sia per i film che per le serie tv -->
+						<h4>Titolo Film: {{ info.title || info.name }}</h4>
+						<h4>
+							Titolo Originale: {{ info.original_title || info.original_name }}
+						</h4>
+						<!-- se trova trova la lingua carica la bandiera corrispondente altrimenti carica l'immagine della bandiera di default -->
+						<img
+							class="flags"
+							:src="
+								languageFlags[info.original_language]
+									? languageFlags[info.original_language]
+									: 'https://iiwiki.us/mediawiki/images/d/d2/SUFlag28Stars.svg'
+							"
+							:alt="info.original_language"
+						/>
+						<div class="rate">
+							<!-- carica 5 stelle -->
+							<div class="stars" v-for="star in 5">
+								<i
+									:class="[
+										// aggiunge la classe di base della stella
+										'fa-solid',
+										'fa-star',
+										// arrotonda il valore del della stringa del voto per eccessso dividilo  per 2 e non mettere nessun valore dopo la virgola
+										// 	aggiungi la classe per colorare la stella in base al valore del numero della stringa
+										star <= Math.ceil(info.vote_average / 2).toFixed(0)
+											? 'fa-star-colored'
+											: '',
+									]"
+								></i>
+							</div>
 						</div>
 					</div>
 
@@ -86,12 +88,15 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.row {
+	margin: 0 auto;
+}
 .container-card {
 	cursor: pointer;
 	width: 342px;
 	height: 500px;
 	position: relative;
-	margin: 10px 7px;
+	margin: 10px;
 
 	img {
 		width: 100%;
@@ -117,14 +122,11 @@ export default {
 .back {
 	transform: rotateY(180deg);
 	overflow-y: auto;
+	padding: 10px;
 }
 
 .container-card:hover > .front {
 	transform: rotateY(-180deg);
-}
-
-.info {
-	padding: 10px;
 }
 
 h4 {

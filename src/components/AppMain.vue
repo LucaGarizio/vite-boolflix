@@ -61,12 +61,12 @@ export default {
 
 <style lang="scss" scoped>
 .main-container {
-	height: calc(100vh - 70px);
+	height: calc(100vh - 90px);
 	overflow: auto;
 }
 .container {
 	width: 90%;
-	margin: 0 auto;
+	margin: 10px auto;
 
 	h2 {
 		margin: 30px 0 10px;
